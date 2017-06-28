@@ -1,0 +1,28 @@
+{
+  "name": "mario-naether/chromiuman",
+  "description": "Codeception Extension for automatically starting and stoping Chromedriver when running tests ",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mario Näther",
+      "email": "mario-naether@gmx.de"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "codeception/codeception": "^2.3",
+    "lbaey/chromedriver": "^1.0"
+  },
+  "extra": {
+    "lbaey/chromedriver": {
+      "bypass-select" : true
+    }
+  },
+  "autoload": {
+    "classmap": [
+      "src/Codeception",
+      "src/Chromiuman"
+    ]
+  }
+}
