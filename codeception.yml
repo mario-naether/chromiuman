@@ -1,0 +1,44 @@
+# suite config
+suites:
+    acceptance:
+        actor: AcceptanceTester
+        path: .
+        modules:
+            enabled:
+                - WebDriver:
+                    url: http://www.google.de
+                    browser: chrome
+                    port: 9515 # ChromeDriver port
+                    window_size: 1920x1080
+                    capabilities:
+                        chromeOptions:
+                          args: ["disable-infobars", "headless","disable-gpu", "window-size=1920x1080"]
+                          #binary: "C:/Users/xxx/Desktop/chrome-win32/chrome.exe"
+
+extensions:
+    enabled:
+        - Codeception\Extension\Chromiuman
+    config:
+        Codeception\Extension\Chromiuman
+            logDir = 'tests/_output/'
+            path = 'vendor/bin/chromedriver.exe'
+
+settings:
+    colors: false
+
+params: 
+    - env
+
+gherkin: []    
+
+# additional paths
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+
+settings:
+    shuffle: false
+    lint: true
