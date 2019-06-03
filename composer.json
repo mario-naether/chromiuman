@@ -11,12 +11,13 @@
   ],
   "require": {
     "php": ">=7.0",
-    "codeception/codeception": "^2.3",
+    "codeception/codeception": "^3.0",
     "lbaey/chromedriver": "^1.1"
   },
   "extra": {
     "lbaey/chromedriver": {
-      "bypass-select" : true
+      "bypass-select" : true,
+      "chromedriver-version": "74.0.3729.6"
     }
   },
   "autoload": {

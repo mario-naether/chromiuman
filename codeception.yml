@@ -25,6 +25,8 @@ extensions:
 
 settings:
     colors: false
+    shuffle: false
+    lint: true
 
 params: 
     - env
@@ -38,7 +40,3 @@ paths:
     data: tests/_data
     support: tests/_support
     envs: tests/_envs
-
-settings:
-    shuffle: false
-    lint: true

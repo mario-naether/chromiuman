@@ -9,8 +9,8 @@ class SearchCest
 
     public function searchSuccessfully(AcceptanceTester $I)
     {
-        $I->fillField('q', 'testing');
-        $I->pressKey('#lst-ib', WebDriverKeys::ENTER);
+        $I->fillField(['name' => 'q'], 'testing');
+        $I->click('btnK');
         $I->wait(2);
 
         $I->seeInCurrentUrl('q=testing');
