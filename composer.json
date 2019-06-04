@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": ">=7.0",
-    "codeception/codeception": "^3.0",
+    "codeception/codeception": "^2.3||^3.0",
     "lbaey/chromedriver": "^1.1"
   },
   "extra": {
