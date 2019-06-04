@@ -1,12 +1,12 @@
 # chromiumman
 Codeception Extension for automatically starting and stoping Chromedriver when running tests
 
-##Minimum Requirements
+## Minimum Requirements
 
 - Codeception 2.3
 - PHP 7.0
 
-##Install
+## Install
 ```bash
 $ composer require mario-naether/chromiuman
 ```
