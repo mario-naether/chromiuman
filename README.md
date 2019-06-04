@@ -11,6 +11,16 @@ Codeception Extension for automatically starting and stoping Chromedriver when r
 $ composer require mario-naether/chromiuman
 ```
 
+## Install a newer version of chromium driver
+```bash
+"extra": {
+    "lbaey/chromedriver": {
+      "bypass-select" : true,
+      "chromedriver-version": "74.0.3729.6"
+    }
+}
+```
+
 ### Enabling Chromiuman with defaults
 
 ```yaml
