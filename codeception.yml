@@ -20,8 +20,8 @@ extensions:
         - Codeception\Extension\Chromiuman
     config:
         Codeception\Extension\Chromiuman
-            logDir = 'tests/_output/'
-            path = 'vendor/bin/chromedriver.exe'
+            logDir: 'tests/_output/'
+            path: 'vendor/bin/chromedriver.exe'
 
 settings:
     colors: false

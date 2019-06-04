@@ -37,8 +37,8 @@ extensions:
         - Codeception\Extension\Chromiuman
     config: 
         Codeception\Extension\Chromiuman
-            logDir = '/var/logs/chromedriver/'
-            path = '/usr/bin/chromedriver'
+            logDir: '/var/logs/chromedriver/'
+            path: '/usr/bin/chromedriver'
 ```
 
 
