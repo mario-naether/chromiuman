@@ -1,25 +1,33 @@
 <?php
+
 namespace Codeception\Extension;
 
-
-
-
 use Chromiuman\Service\ChromeDriver;
+use Codeception\Event\SuiteEvent;
+use Codeception\Platform\Extension;
 
-class Chromiuman extends \Codeception\Platform\Extension
+class Chromiuman extends Extension
 {
-    // list events to listen to
-    static $events = array(
+    /** @var array  */
+    public static $events = [
         'module.init' => 'moduleInit',
-    );
+    ];
 
+    /** @var ChromeDriver  */
     protected $chromeDriver;
 
+    /** @var array  */
     protected $config = [];
 
+    /** @var string  */
     protected $defaultPath = 'vendor/bin/chromedriver.exe';
 
-    public function __construct($config, $options)
+    /**
+     * Chromiuman constructor.
+     * @param array $config
+     * @param array $options
+     */
+    public function __construct(array $config, array $options)
     {
         parent::__construct($config, $options);
 
@@ -34,27 +42,27 @@ class Chromiuman extends \Codeception\Platform\Extension
 
     /**
      * Module Init
+     * @param SuiteEvent $e
      */
-    public function moduleInit(\Codeception\Event\SuiteEvent $e)
+    public function moduleInit(SuiteEvent $e): void
     {
         $this->startChromeDriver();
     }
 
-    protected function startChromeDriver() {
 
+    protected function startChromeDriver(): void
+    {
         $this->writeln(PHP_EOL);
         $this->writeln('Starting Chromedriver');
 
         $this->chromeDriver->startChromeDriver();
-
     }
 
-    protected function stopChromeDriver() {
-
+    protected function stopChromeDriver(): void
+    {
         $messages = $this->chromeDriver->stopChromeDriver();
         $this->write($messages);
     }
-
 
     public function __destruct()
     {

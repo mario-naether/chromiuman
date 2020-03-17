@@ -1,25 +1,23 @@
 <?php
+
 namespace Chromiuman\Service;
 
 class ChromeDriver
 {
-
-    /**
-     * @var
-     */
+    /** @var resource */
     private $resource;
 
-    /**
-     * @var
-     */
+    /** @var array */
     private $pipes;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $config;
 
-    public function __construct($conf)
+    /**
+     * ChromeDriver constructor.
+     * @param $array $conf
+     */
+    public function __construct(array $conf)
     {
         $this->config = $conf;
     }
@@ -27,24 +25,24 @@ class ChromeDriver
     /**
      * Start chromedriver
      */
-    public function startChromeDriver() {
+    public function startChromeDriver(): void
+    {
         $command = $this->getCommand();
 
-        $descriptorSpec = array(
-            array('pipe', 'r'),
-            array('file', $this->config['logDir'] . 'chromedriver.output.txt', 'w'),
-            array('file', $this->config['logDir'] . 'chromedriver.errors.txt', 'a')
-        );
-
-
-        $this->resource = proc_open($command, $descriptorSpec, $this->pipes, null, null, array('bypass_shell' => true));
+        $descriptorSpec = [
+            ['pipe', 'r'],
+            ['file', $this->config['logDir'] . 'chromedriver.output.txt', 'w'],
+            ['file', $this->config['logDir'] . 'chromedriver.errors.txt', 'a']
+        ];
+        $this->resource = proc_open($command, $descriptorSpec, $this->pipes, null, null, ['bypass_shell' => true]);
     }
 
     /**
      * Stops chromedriver
      * @return array
      */
-    public function stopChromeDriver() {
+    public function stopChromeDriver(): array
+    {
 
         $messages = [];
         if ($this->resource !== null) {
@@ -84,9 +82,11 @@ class ChromeDriver
         return $messages;
     }
 
-
-    protected function getCommand() {
-
+    /**
+     * @return string
+     */
+    protected function getCommand(): string
+    {
         $params = [
             '--url-base=wd/hub'
         ];
@@ -101,8 +101,8 @@ class ChromeDriver
      * @return bool True if the machine is windows.
      * @see http://stackoverflow.com/questions/5879043/php-script-detect-whether-running-under-linux-or-windows
      */
-    private function isWindows()
+    private function isWindows(): bool
     {
-        return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
+        return stripos(PHP_OS, 'WIN') === 0;
     }
 }
